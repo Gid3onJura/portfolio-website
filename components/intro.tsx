@@ -7,17 +7,30 @@ import Link from "next/link"
 import { BsArrowRight, BsLinkedin } from "react-icons/bs"
 import { HiDownload } from "react-icons/hi"
 import { FaGithubSquare } from "react-icons/fa"
+import { useActiveSectionContext } from "@/context/activeSectionContext"
+import { useInView } from "react-intersection-observer"
 
 export default function Intro() {
   const [pastYears, setPastYears] = useState(0)
   useEffect(() => {
-    const yearOfGraduation = new Date("2020-08-01").getFullYear()
+    const year = new Date("2020-08-01").getFullYear()
     const currentYear = new Date().getFullYear()
-    setPastYears(currentYear - yearOfGraduation)
+    setPastYears(currentYear - year)
   }, [])
 
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  })
+  const { setActiveSection } = useActiveSectionContext()
+
+  useEffect(() => {
+    if (inView) {
+      setActiveSection("Start")
+    }
+  }, [inView, setActiveSection])
+
   return (
-    <section id="start" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
+    <section ref={ref} id="start" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
