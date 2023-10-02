@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { BsArrowRight, BsLinkedin } from "react-icons/bs"
@@ -9,8 +9,15 @@ import { HiDownload } from "react-icons/hi"
 import { FaGithubSquare } from "react-icons/fa"
 
 export default function Intro() {
+  const [pastYears, setPastYears] = useState(0)
+  useEffect(() => {
+    const yearOfGraduation = new Date("2020-08-01").getFullYear()
+    const currentYear = new Date().getFullYear()
+    setPastYears(currentYear - yearOfGraduation)
+  }, [])
+
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section id="start" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
@@ -54,8 +61,9 @@ export default function Intro() {
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hi, Ich bin Richard.</span> Ich bin ein{" "}
-        <span className="font-bold">Full-Stack Entwickler</span> mit <span className="font-bold">6 Jahren</span>{" "}
-        Berufserfahrung. Ich liebe es <span className="italic">Web-Seiten & Apps</span> zu bauen.
+        <span className="font-bold">Full-Stack Entwickler</span> mit{" "}
+        <span className="font-bold">{pastYears > 8 ? "mehr als 8" : pastYears} Jahren</span> Berufserfahrung. Ich liebe
+        es <span className="italic">Web-Seiten & Apps</span> zu bauen.
       </motion.h1>
 
       <motion.div

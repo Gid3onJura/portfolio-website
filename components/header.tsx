@@ -1,11 +1,14 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import { motion } from "framer-motion"
 import { links } from "@/lib/data"
 import Link from "next/link"
+import clsx from "clsx"
 
 export default function Header() {
+  const [activeSection, setActiveSection] = useState("Start")
+
   return (
     <header className="z-[999] relative">
       <motion.div
@@ -26,7 +29,7 @@ export default function Header() {
         <ul className="flex w-[22rem] flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:w-[inital] sm:flex-nowrap sm:gap-5">
           {links.map((link) => (
             <motion.li
-              className="h-3/4 flex items-center justify-center"
+              className="h-3/4 flex items-center justify-center relative"
               key={link.hash}
               initial={{
                 y: -100,
@@ -38,10 +41,25 @@ export default function Header() {
               }}
             >
               <Link
-                className="flex items-center justify-center w-full px-2 py-3 hover:text-gray-950 transition"
+                className={clsx("flex items-center justify-center w-full px-2 py-3 hover:text-orange-700 transition", {
+                  "text-gray-950": activeSection === link.name,
+                })}
                 href={link.hash}
+                onClick={() => setActiveSection(link.name)}
               >
                 {link.name}
+
+                {link.name === activeSection && (
+                  <motion.span
+                    className="bg-gray-300 rounded-full absolute inset-0 -z-10"
+                    layoutId="activeSection"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  ></motion.span>
+                )}
               </Link>
             </motion.li>
           ))}
