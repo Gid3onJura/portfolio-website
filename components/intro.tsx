@@ -7,8 +7,7 @@ import Link from "next/link"
 import { BsArrowRight, BsLinkedin } from "react-icons/bs"
 import { HiDownload } from "react-icons/hi"
 import { FaGithubSquare } from "react-icons/fa"
-import { useActiveSectionContext } from "@/context/activeSectionContext"
-import { useInView } from "react-intersection-observer"
+import { useSectionInView } from "@/lib/hooks"
 
 export default function Intro() {
   const [pastYears, setPastYears] = useState(0)
@@ -18,16 +17,7 @@ export default function Intro() {
     setPastYears(currentYear - year)
   }, [])
 
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-  })
-  const { setActiveSection } = useActiveSectionContext()
-
-  useEffect(() => {
-    if (inView) {
-      setActiveSection("Start")
-    }
-  }, [inView, setActiveSection])
+  const { ref } = useSectionInView("Start", 0.5)
 
   return (
     <section ref={ref} id="start" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
