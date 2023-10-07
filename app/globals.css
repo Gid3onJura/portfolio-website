@@ -2,10 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
+html {
+  --line-color: #e5e7eb;
+}
+
+.vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
   display: block !important;
-  visibility: visible !important;
-} */
+}
 
 .is-hidden {
   display: block !important;
