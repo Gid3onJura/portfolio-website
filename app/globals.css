@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .vertical-timeline--animate .vertical-timeline-element-content.is-hidden {
+  display: block !important;
+  visibility: visible !important;
+} */
+
+.is-hidden {
+  display: block !important;
+  visibility: visible !important;
+}
