@@ -14,3 +14,15 @@ html {
   display: block !important;
   visibility: visible !important;
 }
+
+.globalBackgroundColor {
+  @apply bg-orange-400;
+}
+
+.globalTextColor {
+  @apply text-gray-400;
+}
+
+.borderBlack {
+  @apply border border-black/10;
+}

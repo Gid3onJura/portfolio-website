@@ -18,8 +18,8 @@ export default function Home() {
       <Skills />
       <SectionDivider />
       <Experience />
-      {/* <SectionDivider />
-      <Contact /> */}
+      <SectionDivider />
+      <Contact />
     </main>
   )
 }
