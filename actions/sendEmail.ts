@@ -32,11 +32,11 @@ export const sendEmail = async (formData: FormData) => {
       to: contactTo as string,
       subject: "Portfolio Contact Message - " + contactEmail,
       reply_to: contactEmail as string,
-      text: contactMessage as string,
-      // react: React.createElement(ContactFormEmail, {
-      //   contactMessage: contactMessage as string,
-      //   contactEmail: contactEmail as string,
-      // }),
+      // text: contactMessage as string,
+      react: React.createElement(ContactFormEmail, {
+        contactMessage: contactMessage as string,
+        contactEmail: contactEmail as string,
+      }),
     })
   } catch (error: unknown) {
     console.log(error)
