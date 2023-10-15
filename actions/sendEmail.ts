@@ -1,7 +1,9 @@
 "use server"
 
+import React from "react"
 import { Resend } from "resend"
 import { getErrorMessage, validateEmail, validateString } from "@/lib/utils"
+import ContactFormEmail from "@/email/contact-form"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -31,8 +33,13 @@ export const sendEmail = async (formData: FormData) => {
       subject: "Portfolio Contact Message - " + contactEmail,
       reply_to: contactEmail as string,
       text: contactMessage as string,
+      // react: React.createElement(ContactFormEmail, {
+      //   contactMessage: contactMessage as string,
+      //   contactEmail: contactEmail as string,
+      // }),
     })
   } catch (error: unknown) {
+    console.log(error)
     return {
       error: getErrorMessage(error),
       statusCode: 500,
