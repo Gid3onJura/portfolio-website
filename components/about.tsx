@@ -11,7 +11,7 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="max-w-[45rem] text-center leading-8 scroll-mt-28"
+      className="mb-28 max-w-[45rem] text-center leading-8 scroll-mt-28"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{

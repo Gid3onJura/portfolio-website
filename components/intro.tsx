@@ -23,7 +23,7 @@ export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext()
 
   return (
-    <section ref={ref} id="start" className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
+    <section ref={ref} id="start" className="mb-28 max-w-[50rem] text-center scroll-mt-[100rem]">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
@@ -41,7 +41,7 @@ export default function Intro() {
               height={200}
               quality={95}
               priority={true}
-              className="h-24 w-24 rounded-full border-[0.35rem] border-orange-300 object-cover shadow-xl"
+              className="h-24 w-24 rounded-full border-[0.35rem] border-gray-300 object-cover shadow-xl"
             />
           </motion.div>
 
@@ -95,7 +95,8 @@ export default function Intro() {
 
         <a
           className="bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 
-          hover:scale-110 active:scale-105 transition-all group cursor-pointer border border-black/10"
+          hover:scale-110 active:scale-105 transition-all group cursor-pointer border border-black/10
+          dark:bg-white/10"
           href="/CV.pdf"
           download
         >
@@ -104,7 +105,8 @@ export default function Intro() {
 
         <a
           className="bg-white text-gray-700 p-4 flex items-center gap-2 rounded-full focus:scale-[1.15] 
-          hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-all group cursor-pointer border border-black/10"
+          hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-all group cursor-pointer border border-black/10
+          dark:bg-white/10 dark:text-white/60"
           href="https://linkedin.com"
           target="_blank"
         >
@@ -113,7 +115,8 @@ export default function Intro() {
 
         <a
           className="bg-white text-gray-700 p-4 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] 
-          hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-all group cursor-pointer border border-black/10"
+          hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition-all group cursor-pointer border border-black/10
+          dark:bg-white/10 dark:text-white/60"
           href="https://github.com/Gid3onJura"
           target="_blank"
         >
